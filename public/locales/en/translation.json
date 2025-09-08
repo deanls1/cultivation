@@ -62,5 +62,22 @@
   "defence": "defence",
   "healthRegen": "healthRegen",
   "stop": "stop",
-  "craft": "craft"
+  "craft": "craft",
+  "Next realm:": "Next realm:",
+  "Each completed stage provides": "Each completed stage provides",
+  "multiplier to all stats and": "multiplier to all stats and",
+  "to all following heavenly tribulations": "to all following heavenly tribulations",
+  "Tribulation stages:": "Tribulation stages:",
+  "Passed tribulations": "Passed tribulations",
+  "Multipliers:": "Multipliers:",
+  "Player stats:": "Player stats:",
+  "Tribulation power:": "Tribulation power:",
+  "Hp:": "Hp:",
+  "Hp.regen:": "Hp.regen:",
+  "Atk:": "Atk:",
+  "Def:": "Def:",
+  "Tribulation stage:": "Tribulation stage:",
+  "Power multi:": "Power multi:",
+  "Stop": "Stop",
+  "estim. stage": "estim. stage"
 }

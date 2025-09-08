@@ -10,6 +10,7 @@ import Placeholder from "./RealmBreakthroughPage/Placeholder";
 import calculateMaxTribulationStage from "./RealmBreakthroughPage/calculateMaxTribulationStage";
 import { HtmlTooltip } from "Components";
 import { PlayerContext, GameContext, useNumberParser } from "GameEngine";
+import { useTranslation } from "react-i18next";
 
 // ! Some bad coding ahead. Probably should split into several files :)
 export default function RealmBreakthroughPage() {
@@ -18,6 +19,7 @@ export default function RealmBreakthroughPage() {
   const { realm } = player;
   const { cultivationRealms, updateContext: updateGameContext } =
     React.useContext(GameContext);
+  const { t } = useTranslation();
 
   const nextRealmIndex =
     cultivationRealms.length >= realm.index + 2 ? realm.index + 1 : undefined;
@@ -117,14 +119,14 @@ export default function RealmBreakthroughPage() {
         maxWidth={600}
       >
         <Typography variant="h4" marginBottom={theme.spacing(2)}>
-          Next realm: {nextRealm.name}
+          {t("Next realm:")} {nextRealm.name}
         </Typography>
         {nextRealm.tribulation && (
           <HtmlTooltip
             title={
               <>
                 <Typography>
-                  Each completed stage provides
+                  {t("Each completed stage provides")}
                   <Typography
                     component="span"
                     color={theme.palette.success.main}
@@ -133,7 +135,7 @@ export default function RealmBreakthroughPage() {
                     {" "}
                     x{nextRealm.tribulation.statsMulti}{" "}
                   </Typography>
-                  multiplier to all stats aIndex
+                  {t("multiplier to all stats and")}
                   <Typography
                     component="span"
                     color={theme.palette.error.main}
@@ -142,32 +144,33 @@ export default function RealmBreakthroughPage() {
                     {" "}
                     x{nextRealm.tribulation.multiplier}{" "}
                   </Typography>
-                  to all following heavenly tribulations
+                  {t("to all following heavenly tribulations")}
                 </Typography>
               </>
             }
           >
             <Typography variant="h6" marginBottom={theme.spacing(2)}>
-              Tribulation stages: {nextRealm.tribulation.steps}
+              {t("Tribulation stages:")} {nextRealm.tribulation.steps}
             </Typography>
           </HtmlTooltip>
         )}
         <Box>
           <Box display="flex" alignItems={"center"}>
             <Box marginRight={theme.spacing(4)}>
-              <Typography variant="h6">Passed tribulations</Typography>
+              <Typography variant="h6">{t("Passed tribulations")}</Typography>
               {PassedTribulations.map((item) => {
                 return (
                   <HtmlTooltip
                     key={item.name}
                     title={
                       <>
-                        <Typography>Multipliers:</Typography>
+                        <Typography>{t("Multipliers:")}</Typography>
                         <Typography>
-                          Player stats: {parse(item.statMulti)}
+                          {t("Player stats:")} {parse(item.statMulti)}
                         </Typography>
                         <Typography>
-                          Tribulation power: {parse(item.tribulationMulti)}
+                          {t("Tribulation power:")}{" "}
+                          {parse(item.tribulationMulti)}
                         </Typography>
                       </>
                     }
@@ -189,21 +192,29 @@ export default function RealmBreakthroughPage() {
             </Box>
 
             <Box marginLeft={theme.spacing(4)}>
-              <Typography variant="h6">Tribulation power:</Typography>
-              <Typography>Hp: {parse(currentHealth)}</Typography>
-              <Typography>Hp.regen: {parse(healthRegen)}</Typography>
-              <Typography>Atk: {parse(attack)}</Typography>
-              <Typography>Def: {parse(defence)}</Typography>
+              <Typography variant="h6">{t("Tribulation power:")}</Typography>
+              <Typography>
+                {t("Hp:")} {parse(currentHealth)}
+              </Typography>
+              <Typography>
+                {t("Hp.regen:")} {parse(healthRegen)}
+              </Typography>
+              <Typography>
+                {t("Atk:")} {parse(attack)}
+              </Typography>
+              <Typography>
+                {t("Def:")} {parse(defence)}
+              </Typography>
               <Typography variant="h6">
                 {nextRealm.tribulation
-                  ? `Tribulation stage: ${
+                  ? `${t("Tribulation stage:")} ${
                       nextRealm.tribulation.stepReached || 0
                     }/${nextRealm.tribulation.steps}`
                   : ""}
               </Typography>
               <Typography variant="h6">
                 {nextRealm.tribulation
-                  ? `Power multi: ${
+                  ? `${t("Power multi:")} ${
                       nextRealm.tribulation.stepReached
                         ? parse(
                             TotalTribulations.tribulationMulti *
@@ -219,11 +230,11 @@ export default function RealmBreakthroughPage() {
         </Box>
         <Box marginY={theme.spacing(2)}>
           <Button variant="outlined" onClick={handleClick} size={"large"}>
-            {!isActive ? "Breakthrough" : "Stop"}
+            {!isActive ? t("Breakthrough") : t("Stop")}
           </Button>
           {nextRealm.tribulation && !isActive && (
             <Typography>
-              estim. stage{" "}
+              {t("estim. stage")}{" "}
               {calculateMaxTribulationStage({
                 player,
                 cultivationRealms,
@@ -241,23 +252,39 @@ export default function RealmBreakthroughPage() {
           gap={theme.spacing(4)}
         >
           <Box>
-            <Typography>Health x {parse(currentPower.health)}</Typography>
             <Typography>
-              Health regen x {parse(currentPower.healthRegen)}
+              {t("Health")} x {parse(currentPower.health)}
             </Typography>
-            <Typography>Attack x {parse(currentPower.attack)}</Typography>
-            <Typography>Defence x {parse(currentPower.defence)}</Typography>
-            <Typography>Insight x {parse(currentPower.insight)}</Typography>
+            <Typography>
+              {t("Health Regen")} x {parse(currentPower.healthRegen)}
+            </Typography>
+            <Typography>
+              {t("Attack")} x {parse(currentPower.attack)}
+            </Typography>
+            <Typography>
+              {t("Defence")} x {parse(currentPower.defence)}
+            </Typography>
+            <Typography>
+              {t("Insight")} x {parse(currentPower.insight)}
+            </Typography>
           </Box>
           <ArrowForwardIcon fontSize={"large"} />
           <Box>
-            <Typography>Health x {parse(nextPower.health)}</Typography>
             <Typography>
-              Health regen x {parse(nextPower.healthRegen)}
+              {t("Health")} x {parse(nextPower.health)}
             </Typography>
-            <Typography>Attack x {parse(nextPower.attack)}</Typography>
-            <Typography>Defence x {parse(nextPower.defence)}</Typography>
-            <Typography>Insight x {parse(nextPower.insight)} </Typography>
+            <Typography>
+              {t("Health Regen")} x {parse(nextPower.healthRegen)}
+            </Typography>
+            <Typography>
+              {t("Attack")} x {parse(nextPower.attack)}
+            </Typography>
+            <Typography>
+              {t("Defence")} x {parse(nextPower.defence)}
+            </Typography>
+            <Typography>
+              {t("Insight")} x {parse(nextPower.insight)}{" "}
+            </Typography>
           </Box>
         </Box>
       </Box>

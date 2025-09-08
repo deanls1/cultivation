@@ -62,5 +62,22 @@
   "defence": "防御",
   "healthRegen": "生命恢复",
   "stop": "停止",
-  "craft": "制作"
+  "craft": "制作",
+  "Next realm:": "下一境界：",
+  "Each completed stage provides": "每完成一个阶段提供",
+  "multiplier to all stats and": "倍的全属性加成，以及",
+  "to all following heavenly tribulations": "倍的后续天劫威力加成",
+  "Tribulation stages:": "天劫阶段：",
+  "Passed tribulations": "已通过的天劫",
+  "Multipliers:": "加成倍率：",
+  "Player stats:": "玩家属性：",
+  "Tribulation power:": "天劫威力：",
+  "Hp:": "生命：",
+  "Hp.regen:": "生命恢复：",
+  "Atk:": "攻击：",
+  "Def:": "防御：",
+  "Tribulation stage:": "天劫阶段：",
+  "Power multi:": "威力倍率：",
+  "Stop": "停止",
+  "estim. stage": "预计阶段"
 }
