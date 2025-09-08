@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import ItemDescriptions from "Components/shared/ItemDescriptions";
+import ItemDescriptions from "Components/shared/itemDescriptions";
 import { EnemyType } from "GameConstants/Fighting/Enemies";
 import { getStatName, useNumberParser } from "GameEngine";
 

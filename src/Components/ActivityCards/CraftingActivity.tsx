@@ -7,7 +7,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { PlayerContext } from "GameEngine";
 import { ActivitiesFunctions } from "GameConstants/Activities";
 import { defaultUpdateInterval } from "GameConstants/Constants";
-import ItemDescriptions from "../shared/ItemDescriptions";
+import ItemDescriptions from "../shared/itemDescriptions";
 import ActivityStatsDescription from "Components/shared/ActivityStatsDescription";
 
 // Activity panel for activity without price, shows result image in the top right corner

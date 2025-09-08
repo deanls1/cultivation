@@ -1,6 +1,6 @@
 import { Box, Button, Paper, useTheme } from "@mui/material";
 import { ActivityStatsDescription } from "Components";
-import ItemDescriptions from "Components/shared/ItemDescriptions";
+import ItemDescriptions from "Components/shared/itemDescriptions";
 import { ActivitiesFunctions, Activity } from "GameConstants/Activities";
 import parseTime from "Utils/parseTime";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";

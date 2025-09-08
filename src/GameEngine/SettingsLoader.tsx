@@ -19,12 +19,14 @@ export default function SettingsContextLoader(props: any) {
       let tickrate: any = accessCookie("tickrate");
       let gameSpeed: any = accessCookie("gamespeed");
       let notation: any = accessCookie("notation");
+      let theme: any = accessCookie("theme");
       if (tickrate) tickrate = Number(tickrate);
       if (gameSpeed) gameSpeed = Number(gameSpeed);
       setSettings({
         tickRate: tickrate || Math.floor(1000 / defaultUpdateInterval),
         gameSpeed: gameSpeed || 1,
         notation: notation || "trivial",
+        theme: theme || "light",
       });
       setLoaded(true);
     } catch (error) {
@@ -36,6 +38,7 @@ export default function SettingsContextLoader(props: any) {
     createCookie("tickrate", settings.tickRate.toString(), 1000);
     createCookie("gamespeed", settings.gameSpeed.toString(), 1000);
     createCookie("notation", settings.notation, 1000);
+    createCookie("theme", settings.theme, 1000);
   }, [settings]);
 
   return (

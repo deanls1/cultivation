@@ -8,6 +8,7 @@ import ImportSave from "Pages/SettingsPage/ImportSave";
 import WipeSave from "Pages/SettingsPage/WipeSave";
 import NumberNotation from "Pages/SettingsPage/NumberNotation";
 import CloseIcon from "@mui/icons-material/Close";
+import ThemeSwitcher from "./SettingsPage/ThemeSwitcher";
 
 type Props = {
   setSettings: React.Dispatch<React.SetStateAction<boolean>>;
@@ -54,6 +55,7 @@ export default function SettingsPage(props: Props) {
         <TickRate />
         <GameSpeed />
         <NumberNotation />
+        <ThemeSwitcher />
         <Box display="flex" flexDirection={"column"}>
           <Typography variant="h6">Save Manager</Typography>
         </Box>

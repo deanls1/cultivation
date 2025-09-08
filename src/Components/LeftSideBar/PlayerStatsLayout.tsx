@@ -4,11 +4,13 @@ import Equipment from "./PlayerStatsLayout/Equipment";
 import Inventory from "./PlayerStatsLayout/Inventory";
 import Stats from "./PlayerStatsLayout/Stats";
 import Skills from "./PlayerStatsLayout/Skills";
+import { useTranslation } from "react-i18next";
 
 type Layout = "inventory" | "equipment" | "stats" | "skills";
 
 // Menu to switch between inventory, equipment and player stats displays
 export default function PlayerStatsLayout() {
+  const { t } = useTranslation();
   const [panel, selectPanel] = React.useState<Layout>("inventory");
   const theme = useTheme();
   return (
@@ -20,7 +22,7 @@ export default function PlayerStatsLayout() {
           onClick={() => selectPanel("inventory")}
           color={panel === "inventory" ? "success" : "primary"}
         >
-          Inventory
+          {t("Inventory")}
         </Button>
         <Button
           variant="outlined"
@@ -28,7 +30,7 @@ export default function PlayerStatsLayout() {
           onClick={() => selectPanel("equipment")}
           color={panel === "equipment" ? "success" : "primary"}
         >
-          Equipment
+          {t("Equipment")}
         </Button>
         <Button
           variant="outlined"
@@ -36,7 +38,7 @@ export default function PlayerStatsLayout() {
           onClick={() => selectPanel("stats")}
           color={panel === "stats" ? "success" : "primary"}
         >
-          Stats
+          {t("Stats")}
         </Button>
         <Button
           variant="outlined"
@@ -44,7 +46,7 @@ export default function PlayerStatsLayout() {
           onClick={() => selectPanel("skills")}
           color={panel === "skills" ? "success" : "primary"}
         >
-          Skills
+          {t("Skills")}
         </Button>
       </Box>
       <Box width={512} height={512} overflow="auto">

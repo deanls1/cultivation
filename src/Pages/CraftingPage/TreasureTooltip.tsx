@@ -2,7 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import { ActivitiesFunctions, Activity } from "GameConstants/Activities";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import parseTime from "Utils/parseTime";
-import ItemDescriptions from "Components/shared/ItemDescriptions";
+import ItemDescriptions from "Components/shared/itemDescriptions";
 import ActivityStatsDescription from "Components/shared/ActivityStatsDescription";
 
 type Props = {
