@@ -55,5 +55,10 @@
   "treasures": "法宝",
   "minerals": "矿石",
   "Herbs": "草药",
-  "Price": "价格"
+  "Price": "价格",
+  "name": "名称",
+  "health": "生命",
+  "attack": "攻击",
+  "defence": "防御",
+  "healthRegen": "生命恢复"
 }

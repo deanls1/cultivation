@@ -55,5 +55,10 @@
   "treasures": "treasures",
   "minerals": "minerals",
   "Herbs": "Herbs",
-  "Price": "Price"
+  "Price": "Price",
+  "name": "name",
+  "health": "health",
+  "attack": "attack",
+  "defence": "defence",
+  "healthRegen": "healthRegen"
 }
