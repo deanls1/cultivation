@@ -46,6 +46,6 @@ export default function SettingsContextLoader(props: any) {
       value={{ ...settings, updateContext, setContext: setSettings }}
     >
       {loaded && props.children}
-    </Settings-Context.Provider>
+    </SettingsContext.Provider>
   );
 }
