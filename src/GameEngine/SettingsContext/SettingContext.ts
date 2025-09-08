@@ -7,12 +7,14 @@ export type SettingsContextType = {
   tickRate: number;
   gameSpeed: number;
   notation: "exponential" | "trivial";
+  theme: "light" | "dark";
 };
 
 export const settingsContext: SettingsContextType = {
   tickRate: 1000 / defaultUpdateInterval,
   gameSpeed: 1,
   notation: "trivial",
+  theme: "light",
 };
 
 /** Context initializator */

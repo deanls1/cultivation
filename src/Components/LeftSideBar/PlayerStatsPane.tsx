@@ -3,11 +3,13 @@ import React from "react";
 import HealthBar from "./PlayerStatsPane/HealthBar";
 import StatDetailsTooltip from "./PlayerStatsPane/StatDetailsTooltip";
 import { PlayerContext, useNumberParser } from "GameEngine";
+import { useTranslation } from "react-i18next";
 
 type Props = { displayStats: { name: string; stat: string }[] };
 
 // Displays current player stats
 export default function PlayerStatsPane(props: Props) {
+  const { t } = useTranslation();
   const player = React.useContext(PlayerContext);
   const parse = useNumberParser();
   const { stats, currentStats } = player;
@@ -24,7 +26,7 @@ export default function PlayerStatsPane(props: Props) {
       <StatDetailsTooltip stat="health">
         <Box>
           <HealthBar
-            label={`Health: ${parse(currentHealth)} / ${parse(health)}`}
+            label={`${t("Health")}: ${parse(currentHealth)} / ${parse(health)}`}
             value={(currentHealth / health) * 100}
           />
         </Box>
