@@ -11,10 +11,12 @@ import {
 } from "GameConstants/Cultivation/CultivationManuals";
 import { PlayerContext, getStatName } from "GameEngine";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function ActiveManual() {
   const { state } = React.useContext(PlayerContext);
   const theme = useTheme();
+  const { t } = useTranslation();
   if (state.action !== "cultivating" || !state.manual)
     return (
       <Box
@@ -28,7 +30,7 @@ export default function ActiveManual() {
           marginTop={theme.spacing(2)}
           marginLeft={theme.spacing(2)}
         >
-          No manual selected
+          {t("No manual selected")}
         </Typography>
       </Box>
     );
@@ -79,7 +81,7 @@ export default function ActiveManual() {
         </Box>
         <Typography variant="h5">{manual.name}</Typography>
         <Typography marginLeft={theme.spacing(2)}>
-          Level: {level} / {maxLevel}
+          {t("Level:")} {level} / {maxLevel}
         </Typography>
 
         <Box width={400} marginLeft={theme.spacing(4)}>
@@ -87,7 +89,7 @@ export default function ActiveManual() {
             value={((exp - expForPrevLevel) / expForNextLevel) * 100}
             label={
               level !== maxLevel
-                ? `Exp: ${(exp - expForPrevLevel).toFixed(
+                ? `${t("Exp:")} ${(exp - expForPrevLevel).toFixed(
                     2
                   )}/${expForNextLevel}`
                 : ""

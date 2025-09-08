@@ -1,13 +1,14 @@
 import { Box, Button, Typography, useTheme } from "@mui/material";
 import { CultivationRealms } from "GameConstants/Cultivation/CultivationRealms";
 import { PlayerContext, playerStats, getStatName } from "GameEngine";
-
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function ManualsList() {
   const player = React.useContext(PlayerContext);
   let { manuals, updateContext, stats } = player;
   const theme = useTheme();
+  const { t } = useTranslation();
   if (!manuals) return <Box />;
   let storedManuals = manuals.filter((item) => !item.isEquipped);
 
@@ -35,7 +36,7 @@ export default function ManualsList() {
   return (
     <Box>
       <Typography variant="h5" marginY={theme.spacing(2)}>
-        Known manuals
+        {t("Known manuals")}
       </Typography>
       {storedManuals.map((item) => {
         const { manual, learningProgress } = item;
@@ -67,7 +68,7 @@ export default function ManualsList() {
                 {manual.name} {manual.realm} ({manual.rarity})
               </Typography>
               <Typography>
-                Level: {learningProgress.level} / {manual.maxLevel}
+                {t("Level:")} {learningProgress.level} / {manual.maxLevel}
               </Typography>
               {ManualStatsDescription.map((stat) => {
                 return (
@@ -94,7 +95,7 @@ export default function ManualsList() {
               }}
               disabled={!canSelect}
             >
-              Select
+              {t("Select")}
             </Button>
           </Box>
         );

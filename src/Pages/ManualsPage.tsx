@@ -4,10 +4,12 @@ import { getWindowDimensions } from "Utils/useWindowDimensions";
 import ActiveManual from "./CultivationPage/ActiveManual";
 import EquippedManuals from "./CultivationPage/EquippedManuals";
 import ManualsList from "./CultivationPage/ManualsList";
+import { useTranslation } from "react-i18next";
 
 export default function ManualsPage() {
   const theme = useTheme();
   const { height } = getWindowDimensions();
+  const { t } = useTranslation();
   return (
     <Box
       marginLeft={theme.spacing(2)}
@@ -16,7 +18,7 @@ export default function ManualsPage() {
       overflow="auto"
     >
       <Typography variant="h5" marginBottom={theme.spacing(2)}>
-        Studying Manual
+        {t("Studying Manual")}
       </Typography>
       <ActiveManual />
       <EquippedManuals />

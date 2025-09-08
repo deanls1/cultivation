@@ -1,5 +1,6 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { getWindowDimensions } from "Utils/useWindowDimensions";
 import EquippedManualCard from "./EquippedManuals/EquippedManualCard";
 import PlaceholderCard from "./EquippedManuals/PlaceholderCard";
@@ -9,6 +10,7 @@ export default function EquippedManuals() {
   const { manuals } = React.useContext(PlayerContext);
   const { width } = getWindowDimensions();
   const theme = useTheme();
+  const { t } = useTranslation();
   const equippedManuals = manuals?.filter((manual) => manual.isEquipped);
   const tileIndex = Array(10)
     .fill(0)
@@ -20,7 +22,7 @@ export default function EquippedManuals() {
         marginTop={theme.spacing(2)}
         marginBottom={theme.spacing(2)}
       >
-        Equipped Manuals
+        {t("Equipped Manuals")}
       </Typography>
       <Box display="flex" flexWrap={"wrap"} maxWidth={width - 512}>
         {tileIndex.map((index) => {
