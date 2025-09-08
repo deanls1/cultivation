@@ -1,17 +1,25 @@
 # Cultivation Simulator
 
+> This project is a modification of the original work found at https://github.com/SoulDancer27/cultivation-simulator.
+
 ![image](https://github.com/SoulDancer27/cultivation-simulator/assets/34806883/0f999b12-c958-4996-aa41-ef5a082342e1)
 
 A browser-based incremental game where you embark on a journey of cultivation, growing stronger through training, crafting, and fighting.
 
-## Features
+## Core Features (from the original project)
 
 *   **Cultivation System:** Advance through various realms and increase your power.
 *   **Activities:** Engage in activities like training, mining, crafting, and gathering to improve your stats and obtain resources.
 *   **Item System:** A variety of items to collect, including herbs, minerals, money, and treasures.
-*   **Localization:** The game supports both English and Chinese.
-*   **Dark Mode:** Switch between light and dark themes for a comfortable viewing experience.
-*   **Cheat Panel:** A built-in cheat panel to add money, cultivation, and items for testing or fun.
+
+## New Features & Modifications
+
+This version builds upon the original project by adding the following major features:
+
+*   **Full Localization (i18n):** The entire game interface has been translated into Chinese (中文) and English. A robust internationalization framework (`i18next`) has been integrated to make adding new languages simple.
+*   **Dark Mode:** A theme switcher has been added to the settings page, allowing users to toggle between a light and a dark theme for a more comfortable viewing experience, especially in low-light environments.
+*   **Developer Cheat Panel:** For testing and experimental purposes, a cheat panel has been integrated. It can be opened from the top bar and allows users to add money, cultivation experience, and any in-game item on demand.
+*   **Bug Fixes & Dependency Upgrades:** Resolved numerous compilation errors caused by outdated dependencies and improved overall project stability by upgrading the core build system (`react-scripts`).
 
 ## Running the project
 
