@@ -3,11 +3,11 @@ import ProgressBar from "../shared/ProgressBar";
 import React from "react";
 import parseTime from "Utils/parseTime";
 import { ActivityCardProps } from "./types";
-import itemImages from "../shared/ItemImages";
+
 import { PlayerContext, useNumberParser, getStatName } from "GameEngine";
 import { ActivitiesFunctions } from "GameConstants/Activities";
 import { defaultUpdateInterval } from "GameConstants/Constants";
-import ItemImages from "../shared/ItemImages";
+import ItemImages from "../shared/itemImages";
 import ActivityStatsDescription from "Components/shared/ActivityStatsDescription";
 
 // Activity panel for activity without price, shows result image in the top right corner
