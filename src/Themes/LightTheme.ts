@@ -8,6 +8,15 @@ const LightTheme = responsiveFontSizes(
         paper: "rgb(240, 240, 240)",
       },
     },
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            textTransform: "none",
+          },
+        },
+      },
+    },
   })
 );
 

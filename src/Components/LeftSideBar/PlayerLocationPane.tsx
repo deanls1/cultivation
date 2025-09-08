@@ -20,8 +20,8 @@ export default function PlayerLocationPane() {
           width={theme.spacing(12)}
         ></img>
         <Box width={512 - getSpacing(theme, 12)} paddingLeft={theme.spacing(1)}>
-          <Typography variant="h6">{location.name}</Typography>
-          <Typography variant="body1">{location.description}</Typography>
+          <Typography variant="h6">{t(location.name)}</Typography>
+          <Typography variant="body1">{t(location.description)}</Typography>
         </Box>
       </Box>
     </Box>
