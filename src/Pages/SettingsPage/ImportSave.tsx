@@ -1,9 +1,11 @@
 import { Box, Button, Input } from "@mui/material";
 import { PlayerContext, GameContext } from "GameEngine";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function ImportSave() {
   const { setContext: setPlayer } = React.useContext(PlayerContext);
+  const { t } = useTranslation();
 
   const { setContext: setGame } = React.useContext(GameContext);
   const submit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -33,7 +35,7 @@ export default function ImportSave() {
           component="label"
           htmlFor="fileimport"
         >
-          Import Save
+          {t("Import Save")}
         </Button>
         <Input type="file" id="fileimport" style={{ display: "none" }} />
       </form>

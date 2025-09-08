@@ -2,12 +2,13 @@ import { Button } from "@mui/material";
 import { gameContent } from "GameConstants/GameContent";
 import { PlayerContext, GameContext } from "GameEngine";
 import { playerContext } from "GameEngine/Player/PlayerContext";
-
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function WipeSave() {
   const { setContext: setPlayer } = React.useContext(PlayerContext);
   const { setContext: setGame } = React.useContext(GameContext);
+  const { t } = useTranslation();
 
   const handleClick = () => {
     setPlayer(playerContext);
@@ -18,7 +19,7 @@ export default function WipeSave() {
 
   return (
     <Button variant="outlined" color="error" onClick={handleClick}>
-      Wipe Save
+      {t("Wipe Save")}
     </Button>
   );
 }

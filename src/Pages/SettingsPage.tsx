@@ -10,6 +10,7 @@ import NumberNotation from "Pages/SettingsPage/NumberNotation";
 import CloseIcon from "@mui/icons-material/Close";
 import ThemeSwitcher from "./SettingsPage/ThemeSwitcher";
 import LanguageSwitcher from "./SettingsPage/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   setSettings: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,6 +20,7 @@ export default function SettingsPage(props: Props) {
   const { setSettings } = props;
   const theme = useTheme();
   const { width, height } = getWindowDimensions();
+  const { t } = useTranslation();
 
   return (
     <Paper>
@@ -42,7 +44,7 @@ export default function SettingsPage(props: Props) {
         >
           <Box />
           <Typography variant="h4" sx={{ alignSelf: "center" }}>
-            Settings
+            {t("Settings")}
           </Typography>
           <Button
             variant="outlined"
@@ -59,7 +61,7 @@ export default function SettingsPage(props: Props) {
         <ThemeSwitcher />
         <LanguageSwitcher />
         <Box display="flex" flexDirection={"column"}>
-          <Typography variant="h6">Save Manager</Typography>
+          <Typography variant="h6">{t("Save Manager")}</Typography>
         </Box>
         <Box display="flex" gap={2}>
           <ExportSave />

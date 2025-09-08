@@ -1,6 +1,7 @@
 import { Box, Slider, Typography } from "@mui/material";
 import { SettingsContext } from "GameEngine";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const marks = [
   {
@@ -27,10 +28,11 @@ const marks = [
 
 export default function GameSpeed() {
   const { gameSpeed, updateContext } = React.useContext(SettingsContext);
+  const { t } = useTranslation();
 
   return (
     <Box>
-      <Typography variant="h6"> Game speed: </Typography>
+      <Typography variant="h6"> {t("Game speed:")} </Typography>
       <Box width={"300px"}>
         <Slider
           defaultValue={gameSpeed}

@@ -1,4 +1,5 @@
 import { Box, Button } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import { InventoryFilters } from "../Inventory";
 
 type Props = {
@@ -9,6 +10,7 @@ type Props = {
 // Filter panel to the right of the inventory grid
 export default function InventoryFiltersPane(props: Props) {
   const { type, setType } = props;
+  const { t } = useTranslation();
   return (
     <Box width={128} height={512 - 128}>
       <Button
@@ -17,7 +19,7 @@ export default function InventoryFiltersPane(props: Props) {
         color={type === "all" ? "success" : "primary"}
         fullWidth
       >
-        all
+        {t("all")}
       </Button>
       <Button
         variant="outlined"
@@ -25,7 +27,7 @@ export default function InventoryFiltersPane(props: Props) {
         color={type === "money" ? "success" : "primary"}
         fullWidth
       >
-        money
+        {t("money")}
       </Button>
       <Button
         variant="outlined"
@@ -33,7 +35,7 @@ export default function InventoryFiltersPane(props: Props) {
         color={type === "treasure" ? "success" : "primary"}
         fullWidth
       >
-        treasures
+        {t("treasures")}
       </Button>
       <Button
         variant="outlined"
@@ -41,7 +43,7 @@ export default function InventoryFiltersPane(props: Props) {
         color={type === "mineral" ? "success" : "primary"}
         fullWidth
       >
-        minerals
+        {t("minerals")}
       </Button>
       <Button
         variant="outlined"
@@ -49,7 +51,7 @@ export default function InventoryFiltersPane(props: Props) {
         color={type === "herb" ? "success" : "primary"}
         fullWidth
       >
-        Herbs
+        {t("Herbs")}
       </Button>
     </Box>
   );

@@ -1,7 +1,9 @@
 import { Box, Button } from "@mui/material";
 import { saveAs } from "file-saver";
+import { useTranslation } from "react-i18next";
 
 export default function ExportSave() {
+  const { t } = useTranslation();
   const handleClick = () => {
     try {
       let playerData = localStorage.getItem("player");
@@ -23,7 +25,7 @@ export default function ExportSave() {
   return (
     <Box>
       <Button variant="outlined" color="success" onClick={handleClick}>
-        Export Save
+        {t("Export Save")}
       </Button>
     </Box>
   );

@@ -1,6 +1,7 @@
 import { Box, Slider, Typography } from "@mui/material";
 import { SettingsContext } from "GameEngine";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const marks = [
   {
@@ -31,10 +32,11 @@ const marks = [
 
 export default function TickRate() {
   const { tickRate, updateContext } = React.useContext(SettingsContext);
+  const { t } = useTranslation();
 
   return (
     <Box>
-      <Typography variant="h6"> Game tick rate: </Typography>
+      <Typography variant="h6"> {t("Game tick rate:")} </Typography>
       <Box width={"300px"}>
         <Slider
           defaultValue={tickRate}

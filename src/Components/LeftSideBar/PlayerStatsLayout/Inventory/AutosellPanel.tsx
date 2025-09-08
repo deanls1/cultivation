@@ -17,6 +17,7 @@ import {
 } from "GameConstants/Interfaces";
 import { PlayerContext } from "GameEngine";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 // Options for the realm selection menu
 const Realms: Realm[] = [
@@ -41,6 +42,7 @@ ItemTypes.unshift("all");
 export default function AutosellPanel() {
   const { inventory, updateContext, setContext } =
     React.useContext(PlayerContext);
+  const { t } = useTranslation();
   // Type field manager
   const [type, setType] = React.useState<string>(ItemTypes[0]);
   const typeSelectChange = (event: SelectChangeEvent) => {
@@ -102,16 +104,16 @@ export default function AutosellPanel() {
     >
       <Box>
         <FormControl>
-          <InputLabel id="type-label">Type</InputLabel>
+          <InputLabel id="type-label">{t("Type")}</InputLabel>
           <Select
             labelId="type-label"
             value={type}
-            label="Type"
+            label={t("Type")}
             onChange={typeSelectChange}
           >
             {ItemTypes.map((type) => (
               <MenuItem value={type} key={type}>
-                {type}
+                {t(type)}
               </MenuItem>
             ))}
           </Select>
@@ -119,16 +121,16 @@ export default function AutosellPanel() {
       </Box>
       <Box>
         <FormControl>
-          <InputLabel id="realm-label">Realm</InputLabel>
+          <InputLabel id="realm-label">{t("Realm")}</InputLabel>
           <Select
             labelId="realm-label"
             value={realm.index.toString()}
-            label="Realm"
+            label={t("Realm")}
             onChange={realmSelectChange}
           >
             {Realms.map((realm) => (
               <MenuItem value={realm.index} key={realm.index}>
-                {realm.label}
+                {t(realm.label)}
               </MenuItem>
             ))}
           </Select>
@@ -137,7 +139,7 @@ export default function AutosellPanel() {
       <Box maxWidth={120}>
         <TextField
           id="quality"
-          label="Quality"
+          label={t("Quality")}
           variant="outlined"
           onChange={qualityFieldChange}
           value={quality}
@@ -148,7 +150,7 @@ export default function AutosellPanel() {
           control={
             <Checkbox checked={isActive} onClick={() => setActive(!isActive)} />
           }
-          label="Autosell"
+          label={t("Autosell")}
         />
       </FormGroup>
     </Box>
