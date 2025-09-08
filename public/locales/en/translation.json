@@ -60,5 +60,7 @@
   "health": "health",
   "attack": "attack",
   "defence": "defence",
-  "healthRegen": "healthRegen"
+  "healthRegen": "healthRegen",
+  "stop": "stop",
+  "craft": "craft"
 }

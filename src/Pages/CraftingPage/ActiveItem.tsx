@@ -9,6 +9,7 @@ import { GameContext, PlayerContext } from "GameEngine";
 import React from "react";
 import { defaultUpdateInterval } from "GameConstants/Constants";
 import ResultItemDescription from "./ResultItemDescription";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   activity: Activity;
@@ -20,6 +21,7 @@ export default function ActiveItem(props: Props) {
   const { crafting, updateContext: updateGameContext } =
     React.useContext(GameContext);
   const theme = useTheme();
+  const { t } = useTranslation();
   const { price, result } = activity;
   const isActive =
     player.state.action === "activity" &&
@@ -118,7 +120,7 @@ export default function ActiveItem(props: Props) {
           />
         </Box>
         <Button variant="outlined" onClick={craftButtonClick}>
-          {isActive ? "stop" : "craft"}
+          {isActive ? t("stop") : t("craft")}
         </Button>
       </Box>
     </Paper>

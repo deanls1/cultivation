@@ -60,5 +60,7 @@
   "health": "生命",
   "attack": "攻击",
   "defence": "防御",
-  "healthRegen": "生命恢复"
+  "healthRegen": "生命恢复",
+  "stop": "停止",
+  "craft": "制作"
 }
