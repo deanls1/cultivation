@@ -7,6 +7,7 @@ import { PlayerContext, useNumberParser, getStatName } from "GameEngine";
 import { ActivitiesFunctions } from "GameConstants/Activities";
 import { defaultUpdateInterval } from "GameConstants/Constants";
 import ActivityStatsDescription from "Components/shared/ActivityStatsDescription";
+import { useTranslation } from "react-i18next";
 
 // Generic activity panel without decorations suitable for any activity
 export default function ActivityCard(props: ActivityCardProps) {
@@ -16,6 +17,7 @@ export default function ActivityCard(props: ActivityCardProps) {
   const { updateContext } = player;
   const { result, price } = activity;
   const theme = useTheme();
+  const { t } = useTranslation();
 
   // Handle click on activity card
   const handleClick = () => {
@@ -181,7 +183,7 @@ export default function ActivityCard(props: ActivityCardProps) {
             minWidth={200}
             minHeight={60}
           >
-            <Typography>Price</Typography>
+            <Typography>{t("Price")}</Typography>
             {activity.price?.baseStats && (
               <ActivityStatsDescription
                 stats={activity.price.baseStats}
