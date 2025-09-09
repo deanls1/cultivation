@@ -2,6 +2,7 @@ import { TooltipProps, Typography, useTheme } from "@mui/material";
 import HtmlTooltip from "Components/shared/HtmlTooltip";
 import { PlayerContext, getSkillStructure, useNumberParser } from "GameEngine";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 // Provides description
 export default function SkillDetailsTooltip(
@@ -11,18 +12,19 @@ export default function SkillDetailsTooltip(
   const skillStructure = getSkillStructure(props.skill, player);
   const parse = useNumberParser();
   const theme = useTheme();
+  const { t } = useTranslation();
 
   return (
     <HtmlTooltip
       title={
         <>
-          <Typography color="inherit">Character {props.skill}</Typography>
+          <Typography color="inherit">{t("Character")} {t(props.skill)}</Typography>
           <Typography>
-            Base {props.skill}: {parse(skillStructure.base)}
+            {t("Base")} {t(props.skill)}: {parse(skillStructure.base)}
           </Typography>
 
           <Typography>
-            Manuals multi:
+            {t("Manuals multi")}:
             <Typography
               component="span"
               color={
@@ -37,7 +39,7 @@ export default function SkillDetailsTooltip(
             </Typography>
           </Typography>
           <Typography>
-            Treasures Multi:
+            {t("Treasures Multi")}:
             <Typography
               component="span"
               color={
@@ -52,7 +54,7 @@ export default function SkillDetailsTooltip(
             </Typography>
           </Typography>
           <Typography>
-            Treasures bonus:
+            {t("Treasures bonus")}:
             <Typography
               component="span"
               color={

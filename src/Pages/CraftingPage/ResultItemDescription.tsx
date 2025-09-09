@@ -47,7 +47,7 @@ export default function ResultItemDescription(props: Props) {
         </Box>
         {UniqueItems.includes(item.type as any) ? (
           <Typography>
-            quality: {parse(itemQuality)} power: {parse(itemPower)}
+            {t("Quality")}: {parse(itemQuality)} {t("Power")}: {parse(itemPower)}
           </Typography>
         ) : (
           ""

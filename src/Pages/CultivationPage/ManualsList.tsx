@@ -68,7 +68,7 @@ export default function ManualsList() {
                 {t(manual.name)} {t(manual.realm)} ({t(manual.rarity)})
               </Typography>
               <Typography>
-                {t("Level:")} {learningProgress.level} / {manual.maxLevel}
+                等级：{learningProgress.level} / {manual.maxLevel}
               </Typography>
               {ManualStatsDescription.map((stat) => {
                 return (

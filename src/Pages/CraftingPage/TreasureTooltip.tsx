@@ -30,7 +30,7 @@ export default function TreasureTooltip(props: Props) {
 
   return (
     <Box sx={{ border: 1, p: 1, bgcolor: "background.paper" }}>
-      <Typography variant="h6">{t(item.name)}</Typography>
+      <Typography variant="h6">{item.name}</Typography>
       <Typography>{t("Craft time:")} {craftTimeLabel}</Typography>
       <Typography>{item.description}</Typography>
       <Box

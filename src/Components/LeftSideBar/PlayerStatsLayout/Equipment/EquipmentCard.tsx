@@ -16,8 +16,8 @@ import {
   isInventoryTreasure,
 } from "GameConstants/Interfaces";
 import { TreasureType } from "GameConstants/Items";
-import { currentStats } from "GameConstants/Player";
 import { playerCurrentStats } from "GameEngine/Player/playerCurrentStats";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   treasure: InventoryTreasure | undefined;
@@ -30,6 +30,7 @@ export default function EquipmentCard(props: Props) {
   const theme = useTheme();
   const player = React.useContext(PlayerContext);
   const parse = useNumberParser();
+  const { t } = useTranslation();
   let { inventory, stats, currentStats, skills, updateContext } = player;
   if (!treasure)
     return (
@@ -37,7 +38,7 @@ export default function EquipmentCard(props: Props) {
         <Box display="flex" margin={theme.spacing(1)}>
           <Box width={32} height={32} bgcolor="lightgray"></Box>
           <Box marginLeft={theme.spacing(1)} marginTop={theme.spacing(-1)}>
-            <Typography>Nothing ({type})</Typography>
+            <Typography>{t("Nothing")} ({t(type)})</Typography>
           </Box>
         </Box>
       </Box>
@@ -100,9 +101,9 @@ export default function EquipmentCard(props: Props) {
           <CropSquareImage path={path} size={size} position={{ x: x, y: y }} />
           <Box marginLeft={theme.spacing(1)} marginTop={theme.spacing(-1)}>
             <Typography>
-              {name} ({type})
+              {t(name)} ({t(type)})
             </Typography>
-            <Typography>{realm.name}</Typography>
+            <Typography>{t(realm.name)}</Typography>
           </Box>
           <Button
             variant="contained"
@@ -111,7 +112,7 @@ export default function EquipmentCard(props: Props) {
             sx={{ maxHeight: 32, minHeight: 32, margin: "auto" }}
             onClick={() => unequipItem(treasure.id)}
           >
-            Unequip
+            {t("Unequip")}
           </Button>
         </Box>
         {TreasureDescription.map((item, index) => (

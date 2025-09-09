@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import CropSquareImage from "../shared/CropImage";
 import findItemDescription from "GameConstants/utils/findItemDescription";
 import { ItemType } from "GameConstants/Interfaces";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   width: number;
@@ -11,6 +12,7 @@ type Props = {
 
 export default function BasicGridCell(props: Props) {
   const { width, height, item } = props;
+  const { t } = useTranslation();
   const description = findItemDescription(item.name, item.type);
   const { image } = description;
 
@@ -31,7 +33,7 @@ export default function BasicGridCell(props: Props) {
         />
       </Box>
       <Box maxWidth={width} overflow="auto" whiteSpace={"nowrap"}>
-        <Typography>{item.name}</Typography>
+        <Typography>{t(item.name)}</Typography>
       </Box>
     </Box>
   );

@@ -1,5 +1,5 @@
-import { Box, Button, TableCell, TableRow } from "@mui/material";
-import withTooltip, { WithTooltipType } from "Components/shared/withTooltip";
+import { Button, TableCell, TableRow } from "@mui/material";
+import withTooltip from "Components/shared/withTooltip";
 import { EnemyType } from "GameConstants/Fighting/Enemies";
 import { PlayerContext, useNumberParser } from "GameEngine";
 import React from "react";
@@ -41,7 +41,7 @@ const EnemyRow = withTooltip<Props>((props) => {
         onMouseOver={props.showTooltip}
         onMouseOut={props.hideTooltip}
       >
-        {t(name)}
+        {name}
       </TableCell>
       <TableCell
         onClick={props.toggleTooltip}

@@ -1,24 +1,21 @@
 import { Button } from "@mui/material";
-import { gameContent } from "GameConstants/GameContent";
-import { PlayerContext, GameContext } from "GameEngine";
-import { playerContext } from "GameEngine/Player/PlayerContext";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
 export default function WipeSave() {
-  const { setContext: setPlayer } = React.useContext(PlayerContext);
-  const { setContext: setGame } = React.useContext(GameContext);
   const { t } = useTranslation();
 
-  const handleClick = () => {
-    setPlayer(playerContext);
-    setGame(gameContent);
+  const wipe = () => {
     localStorage.removeItem("player");
     localStorage.removeItem("game");
+    // 清理可能存在的翻译缓存
+    localStorage.removeItem("i18nextLng");
+    // 刷新页面以重新加载默认数据
+    window.location.reload();
   };
 
   return (
-    <Button variant="outlined" color="error" onClick={handleClick}>
+    <Button variant="outlined" color="error" onClick={wipe}>
       {t("Wipe Save")}
     </Button>
   );

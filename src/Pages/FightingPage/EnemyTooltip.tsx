@@ -2,11 +2,13 @@ import { Box, Typography } from "@mui/material";
 import ItemDescriptions from "Components/shared/itemDescriptions";
 import { EnemyType } from "GameConstants/Fighting/Enemies";
 import { getStatName, useNumberParser } from "GameEngine";
+import { useTranslation } from "react-i18next";
 
 export default function EnemyTooltip(props: { item: EnemyType }) {
   const enemy = props.item;
   const { health, healthRegen, defence, attack } = enemy;
   const parse = useNumberParser();
+  const { t } = useTranslation();
   let description: Array<JSX.Element> = [];
   for (const [key, value] of Object.entries({
     health,
@@ -23,13 +25,13 @@ export default function EnemyTooltip(props: { item: EnemyType }) {
   return (
     <Box bgcolor={"background.paper"} border={1} padding={2}>
       <Typography variant="h6">{enemy.name}</Typography>
-      <Typography marginY={1}>{enemy.description}</Typography>
+      <Typography marginY={1}>{enemy.description || ''}</Typography>
       {description}
 
       {enemy.result.items && (
         <>
           <Typography variant="h6" marginTop={2}>
-            Reward
+            {t("Reward")}
           </Typography>
           <ItemDescriptions items={enemy.result.items} />
         </>

@@ -3,6 +3,7 @@ import HtmlTooltip from "Components/shared/HtmlTooltip";
 import { PlayerContext, getStatStructure, useNumberParser } from "GameEngine";
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function StatDetailsTooltip(
   props: Omit<TooltipProps, "title"> & { stat: string }
@@ -11,17 +12,18 @@ export default function StatDetailsTooltip(
   const statStructure = getStatStructure(props.stat, player);
   const parse = useNumberParser();
   const theme = useTheme();
+  const { t } = useTranslation();
 
   return (
     <HtmlTooltip
       title={
         <>
-          <Typography color="inherit">Character {props.stat}</Typography>
+          <Typography color="inherit">{t("Character")} {t(props.stat)}</Typography>
           <Typography>
-            Base {props.stat}: {parse(statStructure.base)}
+            {t("Base")} {t(props.stat)}: {parse(statStructure.base)}
           </Typography>
           <Typography>
-            Realm bonus:
+            {t("Realm bonus")}:
             <Typography
               component="span"
               color={
@@ -36,7 +38,7 @@ export default function StatDetailsTooltip(
             </Typography>
           </Typography>
           <Typography>
-            Manuals bonus:
+            {t("Manuals bonus")}:
             <Typography
               component="span"
               color={
@@ -51,7 +53,7 @@ export default function StatDetailsTooltip(
             </Typography>
           </Typography>
           <Typography>
-            Treasures multi:
+            {t("Treasures multi")}:
             <Typography
               component="span"
               color={
@@ -66,7 +68,7 @@ export default function StatDetailsTooltip(
             </Typography>
           </Typography>
           <Typography>
-            Treasures bonus:
+            {t("Treasures bonus")}:
             <Typography
               component="span"
               color={
