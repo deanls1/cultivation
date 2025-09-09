@@ -23,13 +23,13 @@ export default function TopBar(props: Props) {
 
   const { width } = getWindowDimensions();
 
-  let playerAction = state.action;
+  let playerAction = t(state.action);
   if (state.action === "activity")
-    playerAction += " (" + state.activity?.name + ")";
+    playerAction += " (" + t(state.activity?.name || "") + ")";
   if (state.action === "cultivating")
-    playerAction += " (" + state.manual?.manual.name + ")";
+    playerAction += " (" + t(state.manual?.manual.name || "") + ")";
   if (state.action === "fighting")
-    playerAction += " (" + state.enemy?.name + ")";
+    playerAction += " (" + t(state.enemy?.name || "") + ")";
   return (
     <>
       {showCheatPanel && <CheatPanel onClose={() => setShowCheatPanel(false)} />}

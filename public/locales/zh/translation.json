@@ -281,5 +281,11 @@
   "Treasures multi": "装备倍率",
   "Treasures bonus": "装备加成",
   "Realm bonus": "境界加成",
-  "Base stats": "基础属性"
+  "Base stats": "基础属性",
+  "Add": "添加",
+  "idle": "空闲",
+  "fighting": "战斗中",
+  "breakthrough": "突破中",
+  "cultivating": "修炼中",
+  "activity": "活动中"
 }

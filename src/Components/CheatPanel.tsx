@@ -145,7 +145,7 @@ export default function CheatPanel({ onClose }: Props) {
           >
             {allItems.map((item) => (
               <MenuItem key={item.name} value={item.name}>
-                {item.name}
+                {t(item.name)}
               </MenuItem>
             ))}
           </Select>
