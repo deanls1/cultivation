@@ -1,5 +1,6 @@
 import { defaultAutosaveInterval } from "GameConstants/Constants";
 import React from "react";
+import { useTranslateGameContent } from "Utils/useTranslateGameContent";
 import GameContext, {
   GameContextType,
   gameContext,
@@ -7,7 +8,8 @@ import GameContext, {
 
 // Wrapper for loading player save data
 export default function WorldLoader(props: any) {
-  const [data, setData] = React.useState(gameContext);
+  const translatedGameContent = useTranslateGameContent();
+  const [data, setData] = React.useState(translatedGameContent);
 
   const updateContext = (newData: Partial<GameContextType>) =>
     setData((data) => ({ ...data, ...newData }));

@@ -12,13 +12,11 @@ import CraftingPage from "Pages/CraftingPage";
 import { GameContext, PlayerContext } from "GameEngine";
 import { NavigationBarPages } from "GameConstants/GameContent";
 import FightingPage from "Pages/FightingPage";
-import { useTranslation } from "react-i18next";
 
 export type ActivePage = (typeof NavigationBarPages)[number];
 
 // Switches between different pages
 export default function MainNavigationBar() {
-  const { t } = useTranslation();
   const { width, height } = getWindowDimensions();
   const theme = useTheme();
   const player = React.useContext(PlayerContext);
@@ -53,7 +51,7 @@ export default function MainNavigationBar() {
               sx={{ margin: theme.spacing(2) }}
               key={item}
             >
-              {t(item)}
+              {item}
             </Button>
           ))}
         </Box>
