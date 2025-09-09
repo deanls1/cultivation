@@ -12,7 +12,8 @@ i18n
       loadPath: '/locales/{{lng}}/translation.json',
     },
     fallbackLng: 'en',
-    debug: true,
+    debug: false,
+    initImmediate: false,
     interpolation: {
       escapeValue: false,
     },
