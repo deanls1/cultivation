@@ -25,10 +25,12 @@ import {
 import { TreasureType } from "GameConstants/Items";
 import LockIcon from "Components/shared/LockIcon";
 import { playerCurrentStats } from "GameEngine/Player/playerCurrentStats";
+import { useTranslation } from "react-i18next";
 
 // Draw inventory treasure item
 export default function InventoryTreasureItem(props: InventoryTreasure) {
   const { item: treasure, isLocked } = props;
+  const { t } = useTranslation();
 
   const realmName = CultivationRealms[treasure.realmIndex].name;
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -148,7 +150,7 @@ export default function InventoryTreasureItem(props: InventoryTreasure) {
         <Popper id={id} open={open} anchorEl={anchorEl}>
           <Box sx={{ border: 1, p: 1, bgcolor: "background.paper" }}>
             <Box display="flex" justifyContent={"space-between"}>
-              <Typography>{treasure.name}</Typography>
+              <Typography>{t(treasure.name)}</Typography>
               <Box onClick={() => toggleItemLock(props.id)}>
                 <LockIcon isLocked={isLocked || false} />
               </Box>
@@ -165,14 +167,14 @@ export default function InventoryTreasureItem(props: InventoryTreasure) {
               color="primary"
               onClick={() => equipItem(props.id, props.item.type)}
             >
-              Equip
+              {t("Equip")}
             </Button>
             <Button
               variant="contained"
               color="warning"
               onClick={() => dropItem(props.id)}
             >
-              Drop
+              {t("Drop")}
             </Button>
           </Box>
         </Popper>

@@ -9,11 +9,13 @@ import EmptyCell from "./EmptyCell";
 import { useNumberParser } from "GameEngine";
 import { MoneyType } from "GameConstants/Items";
 import findItemDescription from "GameConstants/utils/findItemDescription";
+import { useTranslation } from "react-i18next";
 
 // Draw inventory money item
 export default function InventoryCountableItem(props: Type) {
   const { name, amount, type } = props;
   const parse = useNumberParser();
+  const { t } = useTranslation();
   // Find image
   const cellData: MoneyType | Material | undefined = findItemDescription(
     name,
@@ -52,11 +54,12 @@ type CountableTooltipProps = Omit<TooltipProps, "title"> & {
 
 function CountableCellTooltip(props: CountableTooltipProps) {
   const { name, description } = props;
+  const { t } = useTranslation();
   return (
     <HtmlTooltip
       title={
         <>
-          <Typography color="inherit">{name}</Typography>
+          <Typography color="inherit">{t(name)}</Typography>
           <Typography variant="body2">{description}</Typography>
         </>
       }

@@ -1,5 +1,6 @@
 import { Box, Button, Paper, useTheme } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import getSpacing from "Utils/getSpacing";
 import { getWindowDimensions } from "Utils/useWindowDimensions";
 import ManualsPage from "Pages/ManualsPage";
@@ -17,6 +18,7 @@ export type ActivePage = (typeof NavigationBarPages)[number];
 
 // Switches between different pages
 export default function MainNavigationBar() {
+  const { t } = useTranslation();
   const { width, height } = getWindowDimensions();
   const theme = useTheme();
   const player = React.useContext(PlayerContext);
@@ -38,6 +40,20 @@ export default function MainNavigationBar() {
     return color;
   }
 
+  // Function to get translation key for navigation items
+  function getTranslationKey(item: string): string {
+    const translationMap: Record<string, string> = {
+      "Training": "TRAINING",
+      "Manuals": "Manuals",
+      "Breakthrough": "Breakthrough",
+      "Mining": "Mining",
+      "Crafting": "Crafting",
+      "Gathering": "Gathering",
+      "Fighting": "Fighting"
+    };
+    return translationMap[item] || item;
+  }
+
   return (
     <Box width={width - 512} height={height - getSpacing(theme, 8)}>
       <Paper elevation={2}>
@@ -51,7 +67,7 @@ export default function MainNavigationBar() {
               sx={{ margin: theme.spacing(2) }}
               key={item}
             >
-              {item}
+              {t(getTranslationKey(item))}
             </Button>
           ))}
         </Box>

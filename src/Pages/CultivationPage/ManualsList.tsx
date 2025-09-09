@@ -65,7 +65,7 @@ export default function ManualsList() {
           >
             <Box>
               <Typography>
-                {manual.name} {manual.realm} ({manual.rarity})
+                {t(manual.name)} {t(manual.realm)} ({t(manual.rarity)})
               </Typography>
               <Typography>
                 {t("Level:")} {learningProgress.level} / {manual.maxLevel}

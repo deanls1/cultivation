@@ -79,7 +79,7 @@ export default function ActiveManual() {
             alt=""
           ></img>
         </Box>
-        <Typography variant="h5">{manual.name}</Typography>
+        <Typography variant="h5">{t(manual.name)}</Typography>
         <Typography marginLeft={theme.spacing(2)}>
           {t("Level:")} {level} / {maxLevel}
         </Typography>
@@ -103,7 +103,7 @@ export default function ActiveManual() {
         display="flex"
       >
         <Typography>
-          {manual.realm} ({manual.rarity})
+          {t(manual.realm)} ({t(manual.rarity)})
         </Typography>
         {ManualStatsDescription.map((stat) => {
           return (

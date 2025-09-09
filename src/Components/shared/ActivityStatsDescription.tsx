@@ -3,6 +3,7 @@ import { ActivitiesFunctions, Activity } from "GameConstants/Activities";
 import { PlayerBaseStats, PlayerSkills } from "GameConstants/Player";
 import { PlayerContext, getStatName, useNumberParser } from "GameEngine";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   stats: Partial<PlayerBaseStats> | Partial<PlayerSkills>;
@@ -13,6 +14,7 @@ type Props = {
 
 export default function ActivityStatsDescription(props: Props) {
   const player = React.useContext(PlayerContext);
+  const { t } = useTranslation();
   const { stats, activity, multiplicatorFunctionName, requiredTime } = props;
   const parse = useNumberParser();
   // Display the  description
@@ -31,7 +33,7 @@ export default function ActivityStatsDescription(props: Props) {
     <Box display="flex" gap={1}>
       {StatsDescription.map((item) => (
         <Typography key={item.text} variant="body1" display="inline">
-          {item.text}{" "}
+          {t(item.text)}{" "}
           {requiredTime
             ? requiredTime > 1000
               ? parse(item.effect)

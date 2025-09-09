@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 import CropSquareImage from "./CropImage";
 import { useNumberParser } from "GameEngine";
@@ -13,6 +14,7 @@ type Props = {
 export default function ItemDescriptions(props: Props) {
   const { items } = props;
   const parse = useNumberParser();
+  const { t } = useTranslation();
   let result: JSX.Element[] = [];
   let i = 0;
   for (let item of items) {
@@ -24,7 +26,7 @@ export default function ItemDescriptions(props: Props) {
       <Box key={i} display="flex" alignItems={"center"} gap={1}>
         <CropSquareImage path={path} size={size} position={{ x, y }} />
         <Typography display="inline">
-          {item.name} {parse(item.amount)}
+          {t(item.name)} {parse(item.amount)}
         </Typography>
       </Box>
     );

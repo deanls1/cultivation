@@ -9,11 +9,13 @@ import { ActivitiesFunctions } from "GameConstants/Activities";
 import { defaultUpdateInterval } from "GameConstants/Constants";
 import ItemDescriptions from "../shared/itemDescriptions";
 import ActivityStatsDescription from "Components/shared/ActivityStatsDescription";
+import { useTranslation } from "react-i18next";
 
 // Activity panel for activity without price, shows result image in the top right corner
 export default function CraftingActivityCard(props: ActivityCardProps) {
   const { activity, isActive, source } = props;
   const player = React.useContext(PlayerContext);
+  const { t } = useTranslation();
 
   const { updateContext } = player;
   const { result, price } = activity;
@@ -69,7 +71,7 @@ export default function CraftingActivityCard(props: ActivityCardProps) {
         height="100%"
         onClick={() => handleClick()}
       >
-        <Typography variant="h6">{activity.name}</Typography>
+        <Typography variant="h6">{t(activity.name)}</Typography>
         <Box
           display="flex"
           justifyContent={"space-between"}
@@ -103,7 +105,9 @@ export default function CraftingActivityCard(props: ActivityCardProps) {
         <Box>
           <ProgressBar
             value={
-              fastAction && isActive ? 100 : (currentTime / requiredTime) * 100
+              fastAction && isActive
+                ? 100
+                : (currentTime / requiredTime) * 100
             }
             label={progressBarLabel}
             rightLabel

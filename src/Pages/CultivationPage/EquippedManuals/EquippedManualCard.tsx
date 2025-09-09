@@ -10,6 +10,7 @@ import {
 import React from "react";
 import { PlayerCultivationManual } from "GameConstants/Interfaces";
 import { PlayerContext, playerStats } from "GameEngine";
+import { useTranslation } from "react-i18next";
 
 export default function EquippedManualCard(props: PlayerCultivationManual) {
   const { manual, learningProgress } = props;
@@ -17,6 +18,7 @@ export default function EquippedManualCard(props: PlayerCultivationManual) {
   let { manuals, state, updateContext, stats } = player;
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const theme = useTheme();
+  const { t } = useTranslation();
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
@@ -72,22 +74,22 @@ export default function EquippedManualCard(props: PlayerCultivationManual) {
         </Box>
         <Box>
           <Typography variant="body2" marginLeft={theme.spacing(1)}>
-            {manual.name}
+            {t(manual.name)}
           </Typography>
           <Typography variant="body2" marginLeft={theme.spacing(1)}>
             {learningProgress.level}/{manual.maxLevel}
           </Typography>
           <Typography variant="body2" marginLeft={theme.spacing(1)}>
-            {manual.realm}
+            {t(manual.realm)}
           </Typography>
         </Box>
         <Popper id={id} open={open} anchorEl={anchorEl}>
           <Box sx={{ border: 1, p: 1, bgcolor: "background.paper" }}>
             <Button onClick={selectButtonClick} color="success">
-              Study
+              {t("Study")}
             </Button>
             <Button onClick={unequipButtonClick} color="warning">
-              Unequip
+              {t("Unequip")}
             </Button>
           </Box>
         </Popper>

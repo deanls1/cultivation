@@ -4,6 +4,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import parseTime from "Utils/parseTime";
 import ItemDescriptions from "Components/shared/itemDescriptions";
 import ActivityStatsDescription from "Components/shared/ActivityStatsDescription";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   item: any;
@@ -14,6 +15,7 @@ type Props = {
 
 export default function TreasureTooltip(props: Props) {
   const { item, context } = props;
+  const { t } = useTranslation();
   const activity: Activity = item;
   const craftTime = activity.time
     ? ActivitiesFunctions[activity.time](activity)
@@ -28,8 +30,8 @@ export default function TreasureTooltip(props: Props) {
 
   return (
     <Box sx={{ border: 1, p: 1, bgcolor: "background.paper" }}>
-      <Typography variant="h6">{item.name}</Typography>
-      <Typography>Craft time: {craftTimeLabel}</Typography>
+      <Typography variant="h6">{t(item.name)}</Typography>
+      <Typography>{t("Craft time:")} {craftTimeLabel}</Typography>
       <Typography>{item.description}</Typography>
       <Box
         display="flex"
@@ -65,7 +67,7 @@ export default function TreasureTooltip(props: Props) {
         variant="outlined"
         onClick={() => context.setActiveItem(activity.name)}
       >
-        Select
+        {t("Select")}
       </Button>
     </Box>
   );

@@ -4,6 +4,7 @@ import { EnemyType } from "GameConstants/Fighting/Enemies";
 import { PlayerContext, useNumberParser } from "GameEngine";
 import React from "react";
 import EnemyTooltip from "./EnemyTooltip";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   item: any;
@@ -12,6 +13,7 @@ const EnemyRow = withTooltip<Props>((props) => {
   const enemy = props.item as EnemyType;
   const { name, health, attack, defence, healthRegen } = enemy;
   const parse = useNumberParser();
+  const { t } = useTranslation();
   const { state, updateContext } = React.useContext(PlayerContext);
   const isActive =
     state.action === "fighting" && state.enemy
@@ -39,7 +41,7 @@ const EnemyRow = withTooltip<Props>((props) => {
         onMouseOver={props.showTooltip}
         onMouseOut={props.hideTooltip}
       >
-        {name}
+        {t(name)}
       </TableCell>
       <TableCell
         onClick={props.toggleTooltip}
@@ -76,7 +78,7 @@ const EnemyRow = withTooltip<Props>((props) => {
           onClick={handleClick}
           color={isActive ? "warning" : "primary"}
         >
-          {isActive ? "Flee" : "Fight"}
+          {isActive ? t("Flee") : t("Fight")}
         </Button>
       </TableCell>
     </TableRow>

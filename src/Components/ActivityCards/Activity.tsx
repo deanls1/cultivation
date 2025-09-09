@@ -135,7 +135,7 @@ export default function ActivityCard(props: ActivityCardProps) {
                       variant="body1"
                       display="inline"
                     >
-                      {item.name} {parse(item.amount)}
+                      {t(item.name)} {parse(item.amount)}
                     </Typography>
                   ))}
                 </Box>
@@ -194,7 +194,7 @@ export default function ActivityCard(props: ActivityCardProps) {
             <Box display="flex" gap={theme.spacing(1)}>
               {ItemPriceDescription.map((item) => (
                 <Typography key={item.name} variant="body1" display="inline">
-                  {item.name} {parse(item.amount)}
+                  {t(item.name)} {parse(item.amount)}
                 </Typography>
               ))}
             </Box>

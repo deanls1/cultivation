@@ -1,12 +1,13 @@
 import { Box, Typography } from "@mui/material";
+import CropSquareImage from "Components/shared/CropImage";
 import { PlayerContext, useNumberParser } from "GameEngine";
-import { Activity } from "GameConstants/Activities/Activities";
+import { Activity } from "GameConstants/Activities";
 import findItemDescription from "GameConstants/utils/findItemDescription";
-import { CropSquareImage } from "Components";
-import { UniqueItems } from "GameConstants/Interfaces";
 import { quality } from "GameConstants/Activities/Crafting";
-import React from "react";
 import power from "GameConstants/Activities/Crafting/power";
+import { UniqueItems } from "GameConstants/Interfaces";
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   activity: Activity;
@@ -16,6 +17,7 @@ type Props = {
 export default function ResultItemDescription(props: Props) {
   const { skills } = React.useContext(PlayerContext);
   const { activity } = props;
+  const { t } = useTranslation();
   const items = activity.result.items;
   if (!items) return <></>;
   const parse = useNumberParser();
@@ -40,7 +42,7 @@ export default function ResultItemDescription(props: Props) {
         <Box display="flex" alignItems={"center"} gap={1}>
           <CropSquareImage path={path} size={size} position={{ x, y }} />
           <Typography display="inline">
-            {item.name} {parse(item.amount)}
+            {t(item.name)} {parse(item.amount)}
           </Typography>
         </Box>
         {UniqueItems.includes(item.type as any) ? (

@@ -1,7 +1,8 @@
 import { Box, Input, Paper, Typography } from "@mui/material";
 import { Activity } from "GameConstants/Activities";
-import { GameContext } from "GameEngine";
 import React from "react";
+import { GameContext } from "GameEngine";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   activity: Activity;
@@ -10,6 +11,7 @@ type Props = {
 export default function PriceMultiplier(props: Props) {
   const { activity } = props;
   const { crafting, updateContext } = React.useContext(GameContext);
+  const { t } = useTranslation();
   const multi = activity.price?.priceMulti || 1;
 
   const handleChange = (event) => {
@@ -38,7 +40,7 @@ export default function PriceMultiplier(props: Props) {
       }}
     >
       <Box display="flex" flexDirection={"column"} minHeight={60} height="100%">
-        <Typography>Price Multi</Typography>
+        <Typography>{t("Price Multi")}</Typography>
         <Input defaultValue={multi} onChange={handleChange} />
       </Box>
     </Paper>

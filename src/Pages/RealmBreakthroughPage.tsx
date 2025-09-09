@@ -194,16 +194,16 @@ export default function RealmBreakthroughPage() {
             <Box marginLeft={theme.spacing(4)}>
               <Typography variant="h6">{t("Tribulation power:")}</Typography>
               <Typography>
-                {t("Hp:")} {parse(currentHealth)}
+                {t("Hp")}: {parse(currentHealth)}
               </Typography>
               <Typography>
-                {t("Hp.regen:")} {parse(healthRegen)}
+                {t("Hp.regen")}: {parse(healthRegen)}
               </Typography>
               <Typography>
-                {t("Atk:")} {parse(attack)}
+                {t("Atk")}: {parse(attack)}
               </Typography>
               <Typography>
-                {t("Def:")} {parse(defence)}
+                {t("Def")}: {parse(defence)}
               </Typography>
               <Typography variant="h6">
                 {nextRealm.tribulation

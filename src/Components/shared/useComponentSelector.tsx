@@ -11,6 +11,7 @@ import breakthroughSuccess from "Pages/RealmBreakthroughPage/breakthroughSuccess
 import getSpacing from "Utils/getSpacing";
 import useWindowDimensions from "Utils/useWindowDimensions";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export type State = { [key: string]: () => JSX.Element };
 
@@ -53,6 +54,7 @@ const Menu = (props: {
   states: string[];
   setState: (item: any) => void;
 }) => {
+  const { t } = useTranslation();
   const { state, states, setState } = props;
   const { width } = useWindowDimensions();
   const player = React.useContext(PlayerContext);
@@ -69,6 +71,21 @@ const Menu = (props: {
     if (canBreakthrough && item === "Breakthrough") color = "warning";
     return color;
   }
+
+  // Function to get translation key for navigation items
+  function getTranslationKey(item: string): string {
+    const translationMap: Record<string, string> = {
+      "Training": "TRAINING",
+      "Manuals": "Manuals",
+      "Breakthrough": "Breakthrough",
+      "Mining": "Mining",
+      "Crafting": "Crafting",
+      "Gathering": "Gathering",
+      "Fighting": "Fighting"
+    };
+    return translationMap[item] || item;
+  }
+
   return (
     <Paper elevation={2}>
       <Box width={width - 512}>
@@ -81,7 +98,7 @@ const Menu = (props: {
             sx={{ margin: 2 }}
             key={item}
           >
-            {item}
+            {t(getTranslationKey(item))}
           </Button>
         ))}
       </Box>

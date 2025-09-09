@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b80d01b-7cfa-4ca5-a9c0-533bb66db414" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/public/locales/en/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/locales/en/translation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/locales/zh/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/locales/zh/translation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameEngine/WorldLoader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameEngine/WorldLoader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/useTranslateGameContent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/useTranslateGameContent.ts" afterDir="false" />
-    </list>
+    <list default="true" id="4b80d01b-7cfa-4ca5-a9c0-533bb66db414" name="更改" comment="fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,6 +74,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
